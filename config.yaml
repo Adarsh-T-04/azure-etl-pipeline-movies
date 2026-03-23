@@ -1,0 +1,44 @@
+# Azure ETL Pipeline — Movies Dataset Configuration
+# ⚠️  Never commit real passwords. Use environment variables instead.
+# Set: AZURE_SQL_SERVER, AZURE_SQL_DATABASE, AZURE_SQL_USER, AZURE_SQL_PASSWORD
+
+extract:
+  encoding: utf-8
+  delimiter: ","
+  required_cols:
+    - id
+    - name
+    - year
+    - rating
+
+transform:
+  drop_nulls_in:
+    - id
+    - name
+    - rating
+  fill_nulls:
+    certificate: "Not Rated"
+    description: "No description available"
+  rename_cols: {}
+  date_cols: []
+  deduplicate_on:
+    - id
+  numeric_cols:
+    - rating
+    - year
+
+  # Movies-specific cleaning (handled in transformer)
+  # - votes     : strip commas → int   e.g. "1,220" → 1220
+  # - gross_income : strip commas → int
+  # - duration  : strip " min" → int   e.g. "175 min" → 175
+
+load:
+  # These values are overridden by env vars in production
+  server: your-server.database.windows.net
+  database: your-database
+  username: your-username
+  password: your-password        # Override via AZURE_SQL_PASSWORD env var
+  table_name: movies
+  schema: dbo
+  if_exists: append              # append | replace | fail
+  chunksize: 500
