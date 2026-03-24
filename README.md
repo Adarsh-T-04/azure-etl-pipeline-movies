@@ -234,7 +234,7 @@ load:
 
 ## 👨‍💻 Author
 
-**Adarsh Kumar**
+**Adarsh Tripathi**
 B.Tech Data Science | Noida International University
 
 
