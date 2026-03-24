@@ -4,7 +4,6 @@
 ![Pandas](https://img.shields.io/badge/Pandas-2.0+-green?style=flat-square&logo=pandas)
 ![Azure SQL](https://img.shields.io/badge/Azure-SQL%20Database-0078D4?style=flat-square&logo=microsoft-azure)
 ![SQLAlchemy](https://img.shields.io/badge/SQLAlchemy-2.0+-red?style=flat-square)
-![License](https://img.shields.io/badge/License-MIT-yellow?style=flat-square)
 
 A **production-ready ETL (Extract → Transform → Load) pipeline** that processes **19,808 IMDb movie records** from CSV and bulk-loads them into **Azure SQL Database** using Python, Pandas, and SQLAlchemy.
 
